@@ -1,15 +1,15 @@
-import withPWA from "next-pwa";
+import nextPWA from "next-pwa";
 
-const isProd = process.env.NODE_ENV === "production";
+const withPWA = nextPWA({
+  dest: "public",
+  register: true,
+  skipWaiting: true,
+  disable: process.env.NODE_ENV === "development", // يشتغل في Production فقط (Vercel)
+});
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // خليها بسيطة
+  // سيبها بسيطة
 };
 
-export default withPWA({
-  dest: "public",
-  disable: !isProd, // يشتغل PWA بس على Vercel (production)
-  register: true,
-  skipWaiting: true,
-})(nextConfig);
+export default withPWA(nextConfig);
