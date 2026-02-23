@@ -30,6 +30,10 @@ export default function RootLayout({ children }) {
           name="apple-mobile-web-app-status-bar-style"
           content="black-translucent"
         />
+
+        {/* PWA Support */}
+        <link rel="manifest" href="/manifest.json" />
+        <meta name="theme-color" content="#ffffff" />
       </head>
 
       <body
